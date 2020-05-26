@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-// OktaMfa: This function serve as the mfa part of okta's authentication chain
+// OktaMfa serve as the mfa part of okta's authentication chain
 func (o *OktaClient) OktaMfa(FactorType string, PassCode string) error {
 	var (
 		body          []byte
@@ -104,8 +104,7 @@ func oktaMfaPush(res *http.Response, j *doRequestInput, oktaUserAuthn *OktaUserA
 func addIntPtr(g *int, toadd int) *int {
 	if g == nil {
 		return &toadd
-	} else {
-		gg := *g + toadd
-		return &gg
 	}
+	gg := *g + toadd
+	return &gg
 }
