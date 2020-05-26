@@ -41,13 +41,13 @@ type OktaUserAuthn struct {
 	CookieJar    http.CookieJar
 }
 
-// OktaUserAuthnEmbedded
+// OktaUserAuthnEmbedded struct
 type OktaUserAuthnEmbedded struct {
 	Factors []OktaUserAuthnFactor `json:"factors"`
 	Factor  OktaUserAuthnFactor   `json:"factor"`
 }
 
-// OktaUserAuthnFactor
+// OktaUserAuthnFactor struct
 type OktaUserAuthnFactor struct {
 	Id         string                      `json:"id"`
 	FactorType string                      `json:"factorType"`
@@ -55,12 +55,12 @@ type OktaUserAuthnFactor struct {
 	Embedded   OktaUserAuthnFactorEmbedded `json:"_embedded"`
 }
 
-// OktaUserAuthnFactorEmbedded
+// OktaUserAuthnFactorEmbedded struct
 type OktaUserAuthnFactorEmbedded struct {
 	Verification OktaUserAuthnFactorEmbeddedVerification `json:"verification"`
 }
 
-// OktaUserAuthnFactorEmbeddedVerification
+// OktaUserAuthnFactorEmbeddedVerification struct
 type OktaUserAuthnFactorEmbeddedVerification struct {
 	Host         string                                       `json:"host"`
 	Signature    string                                       `json:"signature"`
@@ -68,17 +68,17 @@ type OktaUserAuthnFactorEmbeddedVerification struct {
 	Links        OktaUserAuthnFactorEmbeddedVerificationLinks `json:"_links"`
 }
 
-// OktaUserAuthnFactorEmbeddedVerificationLinks
+// OktaUserAuthnFactorEmbeddedVerificationLinks struct
 type OktaUserAuthnFactorEmbeddedVerificationLinks struct {
 	Complete OktaUserAuthnFactorEmbeddedVerificationLinksComplete `json:"complete"`
 }
 
-// OktaUserAuthnFactorEmbeddedVerificationLinksComplete
+// OktaUserAuthnFactorEmbeddedVerificationLinksComplete struct
 type OktaUserAuthnFactorEmbeddedVerificationLinksComplete struct {
 	Href string `json:"href"`
 }
 
-// Response
+// Response struct
 type Response struct {
 	XMLName      xml.Name
 	SAMLP        string `xml:"xmlns:samlp,attr"`
@@ -96,7 +96,7 @@ type Response struct {
 	originalString string
 }
 
-// Assertion
+// Assertion struct
 type Assertion struct {
 	XMLName            xml.Name
 	ID                 string `xml:"ID,attr"`
@@ -110,61 +110,61 @@ type Assertion struct {
 	AttributeStatement AttributeStatement
 }
 
-// Conditions
+// Conditions struct
 type Conditions struct {
 	XMLName      xml.Name
 	NotBefore    string `xml:",attr"`
 	NotOnOrAfter string `xml:",attr"`
 }
 
-// Subject
+// Subject struct
 type Subject struct {
 	XMLName             xml.Name
 	NameID              NameID
 	SubjectConfirmation SubjectConfirmation
 }
 
-// SubjectConfirmation
+// SubjectConfirmation struct
 type SubjectConfirmation struct {
 	XMLName                 xml.Name
 	Method                  string `xml:",attr"`
 	SubjectConfirmationData SubjectConfirmationData
 }
 
-// Status
+// Status struct
 type Status struct {
 	XMLName    xml.Name
 	StatusCode StatusCode `xml:"StatusCode"`
 }
 
-// SubjectConfirmationData
+// SubjectConfirmationData struct
 type SubjectConfirmationData struct {
 	InResponseTo string `xml:",attr"`
 	NotOnOrAfter string `xml:",attr"`
 	Recipient    string `xml:",attr"`
 }
 
-// NameID
+// NameID struct
 type NameID struct {
 	XMLName xml.Name
 	Format  string `xml:",attr"`
 	Value   string `xml:",innerxml"`
 }
 
-// StatusCode
+// StatusCode struct
 type StatusCode struct {
 	XMLName xml.Name
 	Value   string `xml:",attr"`
 }
 
-// AttributeValue
+// AttributeValue struct
 type AttributeValue struct {
 	XMLName xml.Name
 	Type    string `xml:"xsi:type,attr"`
 	Value   string `xml:",innerxml"`
 }
 
-// Attribute
+// Attribute struct
 type Attribute struct {
 	XMLName         xml.Name
 	Name            string           `xml:",attr"`
@@ -173,7 +173,7 @@ type Attribute struct {
 	AttributeValues []AttributeValue `xml:"AttributeValue"`
 }
 
-// AttributeStatement
+// AttributeStatement struct
 type AttributeStatement struct {
 	XMLName    xml.Name
 	Attributes []Attribute `xml:"Attribute"`
