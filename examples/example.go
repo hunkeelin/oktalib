@@ -53,7 +53,7 @@ func main() {
 			panic(err)
 		}
 	default:
-		panic(fmt.Errorf("No recongized mfa method found please contact your administrator."))
+		panic(fmt.Errorf("No recognized mfa method found please contact your administrator."))
 	}
 	out, err := o.GetAwsCredentials(oktalib.GetAwsCredentialsInput{
 		RoleArn:    "arn:aws:iam::216228501626:role/devops-admin-role",

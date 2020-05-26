@@ -55,6 +55,9 @@ func doRequest(i *doRequestInput) (*http.Response, error) {
 		client.Timeout = time.Duration(i.TimeOut) * time.Millisecond
 	}
 	encodepayload, err = json.Marshal(i.Payload)
+	if err != nil {
+		return &http.Response{}, err
+	}
 	if len(i.Route) > 0 {
 		if string(i.Route[0]) != "/" {
 			i.Route = "/" + i.Route
