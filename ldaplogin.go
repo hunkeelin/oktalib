@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-// LdapLogin: Take in user and password and authenticate against okta
+// LdapLogin takes in user and password and authenticate against okta
 func (o *OktaClient) LdapLogin() error {
 	var (
 		res      *http.Response

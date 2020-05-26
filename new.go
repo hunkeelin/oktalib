@@ -4,13 +4,14 @@ import (
 	"fmt"
 )
 
-// Return an OktaClient object, it's for initialization purposes.
+// NewInput returns an OktaClient object, it's for initialization purposes.
 type NewInput struct {
 	Org                 string
 	IdentityProviderArn string
 	SamlURI             string
 }
 
+// New returns Oktaclient with checks
 func New(o *NewInput) (OktaClient, error) {
 	if o.Org == "" {
 		return OktaClient{}, fmt.Errorf("Please specify organization")
