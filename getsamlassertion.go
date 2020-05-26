@@ -19,7 +19,7 @@ type samlresp struct {
 	Sresp   *Response
 }
 
-// GetSamlAssertion: This is the third step of the authentication chain where we obtain the SAML assertion.
+// GetSamlAssertion This is the third step of the authentication chain where we obtain the SAML assertion.
 func (o *OktaClient) GetSamlAssertion() error {
 	var toreturn []byte
 	notAssignedPattern := regexp.MustCompile(`(?i)not\s+assigned`)
