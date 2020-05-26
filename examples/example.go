@@ -17,23 +17,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	currentUser := os.Getenv("USER")
-	userName, err := userprompt.UserPromptWithDefault("Enter Okta Username ("+currentUser+")", currentUser, false)
-	if err != nil {
-		panic(err)
-	}
-
-	pass, err := userprompt.UserPrompt("Enter Okta Password", true)
-	if err != nil {
-		panic(err)
-	}
-	cJar, err := cookiejar.New(nil)
-	if err != nil {
-		panic(err)
-	}
-	o.Username = userName
-	o.Password = pass
-	o.CookieJar = cJar
+	o.Username, o.Password, o.CookieJar = getCredentials()
 	err = o.LdapLogin()
 	if err != nil {
 		panic(err)
@@ -88,4 +72,21 @@ func searchAuthMethod(sep []oktalib.OktaUserAuthnFactor, s string) bool {
 		}
 	}
 	return false
+}
+
+func getCredentials() (string, string, *cookiejar.Jar) {
+	currentUser := os.Getenv("USER")
+	userName, err := userprompt.UserPromptWithDefault("Enter Okta Username ("+currentUser+")", currentUser, false)
+	if err != nil {
+		panic(err)
+	}
+	pass, err := userprompt.UserPrompt("Enter Okta Password", true)
+	if err != nil {
+		panic(err)
+	}
+	cJar, err := cookiejar.New(nil)
+	if err != nil {
+		panic(err)
+	}
+	return userName, pass, cJar
 }
