@@ -9,7 +9,6 @@ import (
 	"time"
 )
 
-
 type doRequestInput struct {
 	Dest      string // The destination address. It has to be hostname
 	Dport     string // The destination address port
@@ -81,4 +80,3 @@ func doRequest(i *doRequestInput) (*http.Response, error) {
 	}
 	return resp, nil
 }
-
