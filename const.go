@@ -1,7 +1,7 @@
 package oktalib
 
 const (
-	MfaCode = "token:software:totp" //MfaCode
-	YubiKey = "token:hardware"      //YubiKey
-	MfaPush = "push"                //MfaPush
+	MfaCode = "token:software:totp" //MfaCode mfa code constant
+	YubiKey = "token:hardware"      //YubiKey hardware mfa constant
+	MfaPush = "push"                //MfaPush push mfa constant
 )
