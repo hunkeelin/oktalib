@@ -12,7 +12,7 @@ func main() {
 	o, err := oktalib.New(&oktalib.NewInput{
 		Org:                 "dev-815627",
 		IdentityProviderArn: "arn:aws:iam::216228501626:saml-provider/Okta_2",
-		SamlURI:             "/app/amazon_aws/exkawa67iQIlhKIxE4x6",
+		SamlURI:             "/app/amazon_aws/exkawa67iQIlhKIxE4x6/sso/saml",
 	})
 	if err != nil {
 		panic(err)

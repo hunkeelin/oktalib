@@ -25,7 +25,7 @@ func New(o *NewInput) (OktaClient, error) {
 	oktaBase := "https://" + o.Org + ".okta.com"
 	return OktaClient{
 		OktaUrl:    oktaBase + "/api/v1/authn",
-		AwsSamlUrl: oktaBase + o.SamlURI + "/sso/saml",
+		AwsSamlUrl: oktaBase + o.SamlURI,
 		Principle:  o.IdentityProviderArn,
 	}, nil
 }
