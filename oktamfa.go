@@ -91,9 +91,12 @@ func oktaMfaPush(res *http.Response, j *doRequestInput, oktaUserAuthn *OktaUserA
 		if err != nil {
 			return &http.Response{}, fmt.Errorf("Unable to read respBody %v", err)
 		}
-		err = json.Unmarshal(body, oktaUserAuthn)
+		err = json.Unmarshal(body, &oktaUserAuthn)
 		if err != nil {
 			return &http.Response{}, err
+		}
+		if oktaUserAuthn.Embedded.Factor.Embedded.Challange.CorrectAnswer != 0 {
+			fmt.Printf("The challenge password is %v.\n", oktaUserAuthn.Embedded.Factor.Embedded.Challange.CorrectAnswer)
 		}
 		time.Sleep(2 * time.Second)
 		counter--

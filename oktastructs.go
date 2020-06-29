@@ -58,6 +58,12 @@ type OktaUserAuthnFactor struct {
 // OktaUserAuthnFactorEmbedded struct
 type OktaUserAuthnFactorEmbedded struct {
 	Verification OktaUserAuthnFactorEmbeddedVerification `json:"verification"`
+	Challange    OktaUserAuthnFactorEmbeddedChallenge    `json:"challenge"`
+}
+
+// OktaUserAuthnFactorEmbeddedChallenge
+type OktaUserAuthnFactorEmbeddedChallenge struct {
+	CorrectAnswer int `json:"correctAnswer"`
 }
 
 // OktaUserAuthnFactorEmbeddedVerification struct
